@@ -3,7 +3,6 @@
 import re
 
 __origin_url__ = '/Users/taffy/Project/api'
-__http_url__ = '/Users/taffy/Project/api.html'
 
 prefix = '<body style="font:14px/1.5 tahoma,arial,sans-serif;"><h1><meta charset="utf-8" /><a name="totop">API 文档汇总:</a></h1>'
 toTop = '<a style="position:fixed;top: 100px;right:50px;" href="#totop">回到顶部</a>'
@@ -30,7 +29,7 @@ def __insert():
         httpString += str(httpList[i])
         i += 1
     # 写入文件
-    with open(__http_url__, 'w') as file:
+    with open(__origin_url__ + '.html', 'w') as file:
         file.write(prefix + toTop + httpString + htmlString + suffix)
 
 with open(__origin_url__, 'r') as file:
@@ -38,20 +37,23 @@ with open(__origin_url__, 'r') as file:
     items = __filter()
 
 with open(__origin_url__, 'r') as file:
+    # 以行获取文件
     alllines = file.readlines()
 
-    htmlString = ""
+    htmlString = ''
     httpList = []
     position = 0
     for line in alllines:
         position += 1
         s = line.rstrip()
+        # 每条 url 与 文本中的 url 做绑定
         if __judge_http(s, position):
-            aName = str(position + 5 + len(items))
-            httpList.append('<div style="height:25px;"><a style="text-decoration: none;" href="#'+ aName +'">' + s + '</a></div>')
-            htmlString += '<div style="height:20px;"><a name="'+ aName +'">' + s + '</a></div>'
+            a_name = str(position + 5 + len(items))
+            httpList.append('<div style="height:25px;"><a style="text-decoration: none;" href="#'+ a_name +'">' + s + '</a></div>')
+            htmlString += '<div style="height:20px;"><a name="'+ a_name +'">' + s + '</a></div>'
             continue
 
+        # 非 url 的行
         tt = '<div style="height:20px; color: #999;">'
         for c in s:
             if c == ' ':
