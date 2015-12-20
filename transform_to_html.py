@@ -5,7 +5,7 @@ import re
 __origin_url__ = '/Users/taffy/Project/api'
 __http_url__ = '/Users/taffy/Project/api.html'
 
-prefix = '<body style="font:14px/1.5 tahoma,arial,sans-serif;"><h1><a name="totop">API 文档汇总:</a></h1>'
+prefix = '<body style="font:14px/1.5 tahoma,arial,sans-serif;"><h1><meta charset="utf-8" /><a name="totop">API 文档汇总:</a></h1>'
 toTop = '<a style="position:fixed;top: 100px;right:50px;" href="#totop">回到顶部</a>'
 suffix = '</body>'
 
