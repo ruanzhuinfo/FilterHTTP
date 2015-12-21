@@ -2,7 +2,7 @@
 
 import re
 
-__URL__ = '/Users/taffy/Project/web_api_v5'
+__URL__ = '/Users/taffy/Project/api'
 __prefix = 'API 文档链接汇总:\n======================================================================\n\n'
 __suffix = '\n✄======================================================================\n\n'
 
@@ -34,7 +34,7 @@ def __insert():
     httpString += __suffix
 
     # 写入文件
-    with open(__URL__, 'w') as file:
+    with open(__URL__ + '_outline', 'w') as file:
         file.write(httpString + __fileString)
 
 with open(__URL__, 'r') as file:
