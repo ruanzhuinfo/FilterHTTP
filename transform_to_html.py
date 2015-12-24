@@ -3,10 +3,10 @@
 import re
 
 # 要处理的文件路径
-__origin_path__ = '/Users/taffy/Downloads/api.txt'
+__origin_path__ = '/Users/taffy/Downloads/api'
 
 # 生成 html 文件路径
-__generate_path__ = '/Users/taffy/Project/Moblie Project/homura/api_document/api'
+__generate_path__ = '/Users/taffy/api_document/api'
 
 prefix = '<body style="font:14px/1.5 tahoma,arial,sans-serif;"><h1><meta charset="utf-8" /><a name="totop">API 文档汇总:</a></h1>'
 toTop = '<a style="position:fixed;top: 100px;right:50px;" href="#totop">回到顶部</a>'
