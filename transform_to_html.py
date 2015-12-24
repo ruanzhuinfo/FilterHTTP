@@ -2,7 +2,11 @@
 
 import re
 
-__origin_url__ = '/Users/taffy/Project/api'
+# 要处理的文件路径
+__origin_path__ = '/Users/taffy/Downloads/api.txt'
+
+# 生成 html 文件路径
+__generate_path__ = '/Users/taffy/Project/Moblie Project/homura/api_document/api'
 
 prefix = '<body style="font:14px/1.5 tahoma,arial,sans-serif;"><h1><meta charset="utf-8" /><a name="totop">API 文档汇总:</a></h1>'
 toTop = '<a style="position:fixed;top: 100px;right:50px;" href="#totop">回到顶部</a>'
@@ -29,14 +33,14 @@ def __insert():
         httpString += str(httpList[i])
         i += 1
     # 写入文件
-    with open(__origin_url__ + '.html', 'w') as file:
+    with open(__generate_path__ + '.html', 'w') as file:
         file.write(prefix + toTop + httpString + htmlString + suffix)
 
-with open(__origin_url__, 'r') as file:
+with open(__origin_path__, 'r') as file:
     fileString = file.read()
     items = __filter()
 
-with open(__origin_url__, 'r') as file:
+with open(__origin_path__, 'r') as file:
     # 以行获取文件
     alllines = file.readlines()
 
